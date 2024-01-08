@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Parking Lot</title>
+</head>
+
+<body>
+    <h1>Choose a Parking Lot</h1>
+
+    <!-- 添加用于选择停车场的select元素 -->
+    <label for="parkingLotSelect">Select a Parking Lot:</label>
+    <select id="parkingLotSelect" onchange="displayParkingLotInfo()">
+        <option value="" disabled selected>Choose a parking lot</option>
+    </select>
+
+    <!-- 用于显示JSON数据的容器 -->
+    <div id="json-container"></div>
+
+    <script>
+        // 获取选择停车场的select元素
+        const parkingLotSelect = document.getElementById("parkingLotSelect");
+
+        // 清空已有选项
+        parkingLotSelect.innerHTML = '<option value="" disabled selected>Choose a parking lot</option>';
+
+        // 动态生成选项
+        fetch('路外停車資訊.json')  // 这里的路径应该与服务器上的实际路径匹配
+            .then(response => response.json())
+            .then(jsonData => {
+                jsonData.parkingLots.forEach(parkingLot => {
+                    const option = document.createElement("option");
+                    option.value = parkingLot.parkId;
+                    option.textContent = parkingLot.parkName;
+                    parkingLotSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+
+        function displayParkingLotInfo() {
+            // 获取选择停车场的select元素
+            const parkingLotSelect = document.getElementById("parkingLotSelect");
+
+            // 获取选中的停车场ID
+            const selectedParkId = parkingLotSelect.value;
+
+            // 根据选中的停车场ID找到相应的停车场信息
+            fetch('/json/parkingData.json')  // 这里的路径应该与服务器上的实际路径匹配
+                .then(response => response.json())
+                .then(jsonData => {
+                    const selectedParkingLot = jsonData.parkingLots.find(parkingLot => parkingLot.parkId === selectedParkId);
+
+                    // 将停车场信息显示在页面上
+                    document.getElementById("json-container").innerHTML = `
+                        <p>Park Name: ${selectedParkingLot.parkName}</p>
+                        <p>Total Space: ${selectedParkingLot.totalSpace}</p>
+                        <p>Surplus Space: ${selectedParkingLot.surplusSpace}</p>
+                        <p>Pay Guide: ${selectedParkingLot.payGuide}</p>
+                        <p>Introduction: ${selectedParkingLot.introduction}</p>
+                        <p>Address: ${selectedParkingLot.address}</p>
+                        <p>WGS X: ${selectedParkingLot.wgsX}</p>
+                        <p>WGS Y: ${selectedParkingLot.wgsY}</p>
+                    `;
+                })
+                .catch(error => console.error('Error fetching JSON:', error));
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "sa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asz18369/SA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asz18369/SA/issues"
+  },
+  "homepage": "https://github.com/asz18369/SA#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
