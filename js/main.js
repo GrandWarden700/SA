@@ -123,7 +123,7 @@
         data: {
             labels: [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150],
             datasets: [{
-                label: "Salse",
+                label: "停車數量",
                 fill: false,
                 backgroundColor: "rgba(0, 156, 255, .3)",
                 data: [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15]
@@ -138,23 +138,31 @@
     // Single Bar Chart
     var ctx4 = $("#bar-chart").get(0).getContext("2d");
     var myChart4 = new Chart(ctx4, {
-        type: "bar",
-        data: {
-            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
-            datasets: [{
-                backgroundColor: [
-                    "rgba(0, 156, 255, .7)",
-                    "rgba(0, 156, 255, .6)",
-                    "rgba(0, 156, 255, .5)",
-                    "rgba(0, 156, 255, .4)",
-                    "rgba(0, 156, 255, .3)"
-                ],
-                data: [55, 49, 44, 24, 15]
-            }]
-        },
-        options: {
-            responsive: true
-        }
+      type: 'bar',
+      data: {
+        labels: [
+          '中原國小地下停車場',
+          '自強停車場',
+          '中北健行停車場',
+          '坤慶公園地下停車場',
+          '中壢區公所管轄之公有停車場',
+        ],
+        datasets: [
+          {
+            backgroundColor: [
+              'rgba(0, 156, 255, .7)',
+              'rgba(0, 156, 255, .6)',
+              'rgba(0, 156, 255, .5)',
+              'rgba(0, 156, 255, .4)',
+              'rgba(0, 156, 255, .3)',
+            ],
+            data: [55, 49, 44, 24, 15],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+      },
     });
 
 
