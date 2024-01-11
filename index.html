@@ -145,21 +145,41 @@
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-sm-6 col-xl-3" id="totalSpaceContainer">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">總停車位</p>
-                                <h6 class="mb-0">264</h6>
+                                <h6 class="mb-0" id="totalSpace">Loading...</h6>
+                                <script>
+                                    // 使用 fetch 异步加载 JSON 数据
+                                    fetch('路外停車資訊.json')  // 请替换为你实际的 JSON 文件路径
+                                        .then(response => response.json())
+                                        .then(jsonData => {
+                                            // 获取 HTML 元素
+                                            const totalSpaceContainer = document.getElementById("totalSpaceContainer");
+                                            const totalSpaceElement = document.getElementById("totalSpace");
+                                            const surplusSpaceContainer = document.getElementById("surplusSpaceContainer");
+                                            const surplusSpaceElement = document.getElementById("surplusSpace");
+
+                                            // 获取第一个停车场的数据
+                                            const firstParkingLot = jsonData.parkingLots[0];
+
+                                            // 更新页面上的内容
+                                            totalSpaceElement.textContent = firstParkingLot.totalSpace;
+                                            surplusSpaceElement.textContent = firstParkingLot.surplusSpace;
+                                        })
+                                        .catch(error => console.error('Error fetching JSON:', error));
+                                </script>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-xl-3">
+                    <div class="col-sm-6 col-xl-3" id="surplusSpaceContainer">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2">剩餘停車位</p>
-                                <h6 class="mb-0">32</h6>
+                                <h6 class="mb-0" id="surplusSpace">Loading...</h6>
                             </div>
                         </div>
                     </div>
@@ -231,7 +251,7 @@
                             <tbody>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
+                                    <td>11 Jan 2024</td>
                                     <td>INV-1234</td>
                                     <td>Harry</td>
                                     <td>2h</td>
@@ -239,7 +259,7 @@
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
+                                    <td>11 Jan 2024</td>
                                     <td>ABC-0123</td>
                                     <td>Dan</td>
                                     <td>3.5h</td>
@@ -247,7 +267,7 @@
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
+                                    <td>11 Jan 2024</td>
                                     <td>INV-4567</td>
                                     <td>Robin</td>
                                     <td>1.5h</td>
@@ -255,7 +275,7 @@
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
+                                    <td>11 Jan 2024</td>
                                     <td>CHD-8223</td>
                                     <td>Amy</td>
                                     <td>2.3h</td>
@@ -263,7 +283,7 @@
                                 </tr>
                                 <tr>
                                     <td><input class="form-check-input" type="checkbox"></td>
-                                    <td>01 Jan 2045</td>
+                                    <td>11 Jan 2024</td>
                                     <td>QGS-5697</td>
                                     <td>John</td>
                                     <td>$123</td>

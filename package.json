@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/asz18369/SA#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "leaflet": "^1.9.4"
   }
 }

@@ -161,46 +161,62 @@
     // Pie Chart
     var ctx5 = $("#pie-chart").get(0).getContext("2d");
     var myChart5 = new Chart(ctx5, {
-        type: "pie",
-        data: {
-            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
-            datasets: [{
-                backgroundColor: [
-                    "rgba(0, 156, 255, .7)",
-                    "rgba(0, 156, 255, .6)",
-                    "rgba(0, 156, 255, .5)",
-                    "rgba(0, 156, 255, .4)",
-                    "rgba(0, 156, 255, .3)"
-                ],
-                data: [55, 49, 44, 24, 15]
-            }]
-        },
-        options: {
-            responsive: true
-        }
+      type: 'pie',
+      data: {
+        labels: [
+          '桃園縣公有府前地下停車場',
+          '新民立體停車場',
+          '西門地下停車場',
+          '廣停一停車場',
+          '銀河廣場地下停車場',
+        ],
+        datasets: [
+          {
+            backgroundColor: [
+              'rgba(0, 156, 255, .7)',
+              'rgba(0, 156, 255, .6)',
+              'rgba(0, 156, 255, .5)',
+              'rgba(0, 156, 255, .4)',
+              'rgba(0, 156, 255, .3)',
+            ],
+            data: [55, 49, 44, 24, 15],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+      },
     });
 
 
     // Doughnut Chart
     var ctx6 = $("#doughnut-chart").get(0).getContext("2d");
     var myChart6 = new Chart(ctx6, {
-        type: "doughnut",
-        data: {
-            labels: ["Italy", "France", "Spain", "USA", "Argentina"],
-            datasets: [{
-                backgroundColor: [
-                    "rgba(0, 156, 255, .7)",
-                    "rgba(0, 156, 255, .6)",
-                    "rgba(0, 156, 255, .5)",
-                    "rgba(0, 156, 255, .4)",
-                    "rgba(0, 156, 255, .3)"
-                ],
-                data: [55, 49, 44, 24, 15]
-            }]
-        },
-        options: {
-            responsive: true
-        }
+      type: 'doughnut',
+      data: {
+        labels: [
+          '南崁公一地下停車場',
+          '廣北平面停車場',
+          '停十八停車場',
+          '兩蔣文化園區慈湖遊客中心暨慈湖廣場附屬停車場',
+          '中壢內壢站',
+        ],
+        datasets: [
+          {
+            backgroundColor: [
+              'rgba(0, 156, 255, .7)',
+              'rgba(0, 156, 255, .6)',
+              'rgba(0, 156, 255, .5)',
+              'rgba(0, 156, 255, .4)',
+              'rgba(0, 156, 255, .3)',
+            ],
+            data: [55, 49, 44, 24, 15],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+      },
     });
 
     

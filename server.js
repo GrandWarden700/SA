@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.use(express.static('public')); // 这里 'public' 是包含 JSON 文件的目录
+app.use(express.static('public'));
 
 const PORT = 3000;
 app.listen(PORT, () => {
